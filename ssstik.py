@@ -1,4 +1,4 @@
-import requests, re, uuid
+import requests, re, uuid, os
 from bs4 import BeautifulSoup as soup
 
 
@@ -67,6 +67,10 @@ def download(url):
 
 
 if __name__ == "__main__":
+    try: os.listdir("media")
+    except: os.mkdir("media")
+
     url = input("Input Url: ")
     response = download(url)
+
     print(response)
